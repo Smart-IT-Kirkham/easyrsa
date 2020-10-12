@@ -1,0 +1,8 @@
+version: '3.2'
+
+services:
+  easyrsa:
+    build: build
+    volumes:
+      - "${PWD}/vars:/usr/local/bin/vars:ro"
+      - "${PWD}/pki/:/easyrsa/pki/:rw"

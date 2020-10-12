@@ -14,23 +14,23 @@ Modify the `vars` file to suit your environment. The only change made here is to
 
 Because the `pki` store is mounted you cannot use the argument `init-pki`, `easyrsa init-pki` needs the ability to remove the `pki` folder using `rm -rf` and recreate it. It cannot do this with a mounted `pki` folder. If you need to reset your pki, just provide the host with an empty `./pki` folder, or delete it and continue the process of `build-ca`.
 
-The delivery of `easyrsa` is carried out using a `wget` of version 3.0.6. This is then placed into `/usr/local/bin` just to have it included in the PATH.
-
-### Docker
-
-```shell
-$ docker run --rm -ti -v "${PWD}/vars:/usr/local/bin/vars" -v "${PWD}/pki:/easyrsa/pki:rw" easyrsa easyrsa 
-```
+The delivery of `easyrsa` is carried out using a `wget` of version 3.0.8. This is then placed into `/usr/local/bin` just to have it included in the PATH.
 
 ### docker-compose.yml
 
 ```yaml
-version: '3'
+version: '3.2'
 
 services:
   easyrsa:
-    image: easyrsa
+    build: build
     volumes:
       - "${PWD}/vars:/usr/local/bin/vars:ro"
       - "${PWD}/pki/:/easyrsa/pki/:rw"
+```
+
+First Usage
+
+```shell
+docker-compose build
 ```
