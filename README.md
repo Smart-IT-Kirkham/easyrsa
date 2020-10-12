@@ -33,4 +33,10 @@ First Usage
 
 ```shell
 docker-compose build
+mkdir -p pki/{private,reqs}
+docker-compose run --rm easyrsa easyrsa build-ca
 ```
+
+### Guide
+
+[https://github.com/OpenVPN/easy-rsa/blob/master/README.quickstart.md](https://github.com/OpenVPN/easy-rsa/blob/master/README.quickstart.md)
