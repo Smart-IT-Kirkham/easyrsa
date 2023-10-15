@@ -1,3 +1,4 @@
+![OpenVPN Logo](./.assets/openvpn_logo.png)
 # Docker Container for EasyRSA
 
 An Alpine based image that provides an EasyRSA Certificate Authority.
